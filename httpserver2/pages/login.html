@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+    body{
+        background-image: url("https://img.freepik.com/premium-vector/gradient-geometric-shapes-background_23-2148884064.jpg?semt=ais_hybrid");
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+    span{
+        color: aliceblue;
+    }
+    .form-control::placeholder{
+color: rgb(237, 237, 237);
+font-family: Arial, Helvetica, sans-serif;
+    }
+    
+</style>
+</head>
+<body>
+    <nav class="navbar fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="logo">MyApp</a>
+          <div class="links">
+                  <a href="/">Home</a>
+                  <a href="/about">About</a>
+                  <a href="/contact">Contact</a>
+                  <a href="/pricing">Pricing</a>
+                  <a href="/downloads">Downloads</a>
+                  <a href="/register">Login/signup</a>
+          </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      <div style="margin-top: 120px;" class="container">
+        <div style="width: 500px; 
+                    margin: auto; 
+                    background: rgba(69, 49, 49, 0.294); 
+                    box-shadow: 0 4px 30px rgba(146, 129, 129, 0.479); 
+                    backdrop-filter: blur(10px); 
+                    -webkit-backdrop-filter: blur(10px); 
+                    border: 1px solid rgba(255, 255, 255, 0.674); 
+                    border-radius: 15px;" 
+             class="card">
+            <div class="card-header ">
+                <h1 style="text-decoration: underline;" class="text-white text-center">User-Login</h1>
+            </div>
+    
+            <div class="card-body form">
+                <form action="/logindata" method="POST">
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-dark text-white" id="basic-addon1">@</span>
+                    <input required type="text" id="usr" class="form-control bg-dark text-white" placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                  
+                <br>
+                  
+                <div class="input-group mb-3">
+                    <span style="cursor: pointer;" class="input-group-text bg-dark text-white" id="basic-addon1"><i class="bi bi-eye-fill" onclick="hidepassword()"></i></span>
+                    <input required type="password" id="pwd" class="form-control bg-dark text-white" placeholder="Enter Password" aria-label="Username" aria-describedby="basic-addon1">
+                </div>           
+                  
+                <br>
+<div style="text-align: center;">
+
+                <input required type="checkbox" name="" id="">
+                <span >Checkout</span>
+                <br>
+                <span>Don't have an Account? click here <a href="/register" style="text-decoration: none;font-weight: 700; color: red;">Register</a></span>
+                </div>
+                <br>
+                <div style="text-align: center;">
+                    <button style="width: 300px;" type="button" onclick="login()" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+<script>
+    async function login() {
+        const username=document.getElementById("usr").value;
+        const password=document.getElementById("pwd").value;
+
+   const logindetails={
+    username:username,
+    password:password
+   }
+
+   const response=await fetch("/logindata",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(logindetails)
+   }).then(response=>response.json()).then(data=>console.log("Login Server Response=>",data)).catch(err=>console.log(err))
+
+    }
+   
+function hidepassword() {
+    let pass=document.getElementById("pwd");
+    if (pass.type=="password") {
+        pass.type="text";
+    }
+    else if(pass.type=="text")
+    {
+        pass.type="password";
+    }
+
+}
+
+
+</script>
+
+</body>
+</html>

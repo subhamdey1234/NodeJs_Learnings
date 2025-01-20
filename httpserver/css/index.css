@@ -1,0 +1,74 @@
+
+p{
+    color: red;
+    font-size: 30px;
+}
+p::first-letter{
+    font-size: 50px;
+    font-weight: bold;
+    color: green;
+}
+img{
+    border-radius: 20px;
+    box-shadow: 0 0 20px red;
+}
+.images{
+    display: flex;
+    gap: 30px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+}
+.links a{
+    color: white;
+    font-weight: 700;
+    text-decoration: solid;
+
+}
+.logo{
+    color: red;
+    text-decoration: solid;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.logo::first-letter{
+    color: orangered;
+    font-size: 35px;
+}
+
+.footer{
+    text-align: center;
+}
+.footer span{
+    font-size: 25px;
+}
+.main{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.card{
+    width: 500px;
+    margin: auto;
+    margin-top: 25px;
+    box-shadow: 0 0 20px rgb(185, 148, 148);
+}
+label{
+    font-weight: 800;
+}
+.info{
+    display: flex;
+   gap: 45px;
+    justify-content: space-between;
+}
